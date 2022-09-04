@@ -7,7 +7,8 @@
 <body>
 <h1>Result</h1>
 <p th:text="'id: ' + ${medicine.id}" />
-<p th:text="'content: ' + ${medicine.description}" />
+<p th:text="'Ayurvedic Name: ' + ${medicine.ayurvedicName}" />
+<p th:text="'Allopathic Name: ' + ${medicine.allopathicName}" />
 <a href="/admin/medicineinput">Submit another message</a>
 </body>
 </html>

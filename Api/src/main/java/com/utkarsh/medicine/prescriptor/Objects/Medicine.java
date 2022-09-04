@@ -22,21 +22,25 @@ public class Medicine {
     private Long id;
 
     @Column
-    private String name;
+    private String Disease;
 
     @Column
-    private String description;
+    private String AllopathicName;
 
-    public Medicine(String name, String description) {
-        this.name = name;
-        this.description = description;
+    @Column
+    private String AyurvedicName;
+
+    public Medicine(String Disease, String AllopathicName, String AyurvedicName) {
+        this.AllopathicName = AllopathicName;
+        this.Disease=Disease;
+        this.AyurvedicName = AyurvedicName;
     }
 
-    @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable(name = "medicine_catagories",
-            joinColumns = {@JoinColumn(name = "medicine_id")} ,
-            inverseJoinColumns = {@JoinColumn(name = "category_id")})
-    private Set<Category> categories = new HashSet<>();
+//    @ManyToMany(cascade = CascadeType.ALL)
+//    @JoinTable(name = "medicine_catagories",
+//            joinColumns = {@JoinColumn(name = "medicine_id")} ,
+//            inverseJoinColumns = {@JoinColumn(name = "category_id")})
+//    private Set<Category> categories = new HashSet<>();
 
 //    public void addCategory(Category category){
 //        this.categories.add(category);

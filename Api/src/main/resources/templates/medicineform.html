@@ -20,13 +20,13 @@
 <!DOCTYPE html>
 <html xmlns:th="https://www.thymeleaf.org">
 <head>
-  <title>Educational registration form</title>
+  <title>Admin</title>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
   <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
   <link  rel="stylesheet"  type="text/css" th:href="@{/CSS/style.css}">
 </head>
-<body th:style="'background: url(/static/images/back.jpg) no-repeat center center fixed;'" >
+<body   th:style="'background-image:url(' + @{/images/back.jpg} + '); background-repeat: no-repeat, repeat; background-size: cover;'" >
 <div class="main-block">
   <div class="left-part">
     <i class="fas fa-file-prescription  fa-4x " ></i>
@@ -42,10 +42,9 @@
       <h2>Register here</h2>
     </div>
     <div class="info">
-      <input class="fname" type="text" name="name" placeholder="Name" th:field="*{name}">
-      <input type="text" name="name" placeholder="Description" th:field="*{description}">
-      <input type="text" name="name" placeholder="Category" th:field="*{category}">
-      <input type="text" name="name" placeholder="Ayurvedic Alternative" th:field="*{ayurvedicAlternative}">
+      <input class="fname" type="text" name="name" placeholder="Disease Name" th:field="*{disease}">
+      <input type="text" name="name" placeholder="Allopahtic Name" th:field="*{allopathicName}">
+      <input type="text" name="name" placeholder="Ayurvedic Name" th:field="*{ayurvedicName}">
 
     </div>
 

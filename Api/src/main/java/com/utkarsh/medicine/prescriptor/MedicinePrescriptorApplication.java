@@ -19,8 +19,8 @@ public class MedicinePrescriptorApplication {
 	public CommandLineRunner initialCreate(MedicineService medicineService) {
 		return (args) -> {
 			Medicine medicine =
-					new Medicine("Dolo", "Contains paracetamol 500Mg");
-			Medicine medicine2 = new Medicine("Flexon","Contains ibrufen 250 mg with paracetamol");
+					new Medicine("Fever","Dolo","Basil");
+			Medicine medicine2 = new Medicine("Pain","Flexon","haldi+milk");
 //
 //			book1.addAuthor(author1);
 //			book1.addCategory(category1);

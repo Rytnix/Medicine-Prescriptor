@@ -1,27 +1,30 @@
 package com.utkarsh.medicine.prescriptor.Controller;
 
 import com.utkarsh.medicine.prescriptor.Objects.Medicine;
+import com.utkarsh.medicine.prescriptor.Repositories.MedicineRepo;
 import com.utkarsh.medicine.prescriptor.Service.MedicineService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.Banner;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController
+@Controller
 public class MedicineController {
+
 
      @Autowired
     MedicineService medicineService;
 
+     @Autowired
+     MedicineRepo medicineRepo;
 
 
-     @GetMapping("/medicine/{id}")
+
+     @RequestMapping("/medicine/{id}")
+     @ResponseBody
     public Medicine findmedicine(@PathVariable Long id , Model model){
          Medicine medicine = medicineService.findMedicineById(id);
          model.addAttribute(medicine);
@@ -29,10 +32,27 @@ public class MedicineController {
 
      }
 
-     @GetMapping("/medicine/findall")
+     @RequestMapping("/medicine/findall")
+     @ResponseBody
      public List<Medicine> findAll(Model model){
          List<Medicine> medicine = medicineService.showAllMedicine();
          model.addAttribute(medicine);
          return medicine;
      }
+
+    @RequestMapping(value = "/admin/medicineinput", method = RequestMethod.GET)
+    public String greetingForm(Model model) {
+        model.addAttribute("medicine", new Medicine());
+        return "medicineform";
+    }
+
+    @RequestMapping(value = "/admin/medicineinput",method = RequestMethod.POST)
+    public String greetingSubmit(@ModelAttribute Medicine medicine, Model model) {
+        model.addAttribute("medicine", medicine);
+        medicineRepo.save(medicine);
+        return "result";
+
+    }
+
+
 }

@@ -26,7 +26,7 @@ public class Category {
           this.name = name;
       }
 
-    @ManyToMany(mappedBy = "categories",cascade = CascadeType.ALL)
-    private Set<Medicine> medicines = new HashSet<Medicine>();
+//    @ManyToMany(mappedBy = "categories",cascade = CascadeType.ALL)
+//    private Set<Medicine> medicines = new HashSet<Medicine>();
 
 }
